@@ -24,7 +24,7 @@
     "variables": {
         "storageName": "[concat('function', uniqueString(parameters('siteName')))]",
         "contentShareName": "[toLower(parameters('siteName'))]",
-        "repoUrl": "https://github.com/anthonychu/azure-functions-static-file-server",
+        "repoUrl": "https://github.com/erpellet/azure-functions-static-website",
         "branch": "master"
     },
     "resources": [
