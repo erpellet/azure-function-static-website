@@ -8,7 +8,7 @@
         },
         "siteLocation": {
             "type": "string",
-            "defaultValue": "West US",
+            "defaultValue": "West Europe",
             "metadata": {
                 "description": "The location to use for creating the function app and hosting plan. It must be one of the Azure locations that support function apps."
             }
