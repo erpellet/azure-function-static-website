@@ -1,5 +1,22 @@
 {
     "parameters": {
+        "GitHubFetcherWebServiceURI" :{
+                "type": "string",
+                "defaultValue": "https://labcoreinfra-githubprivaterepofilefetcher.azurewebsites.net/api/GitHubPrivateRepoFileFetcher",
+                "metadata": {
+                "description": "The GitHub Private Repository File Fetcher Web Service URI"
+            }
+        },
+        "_GitHubLocation": {
+            "type": "string",
+            "defaultValue": "https://raw.githubusercontent.com/tyconsulting/TestPrivateRepo/master/DemoNestedTemplates",
+            "metadata": {
+              "description": "The base URI where artifacts required by this template are located"
+            }
+        },
+        "_GitHubAccessToken": {
+            "type": "securestring"
+        },
         "siteName": {
             "type": "string",
             "metadata": {
@@ -24,7 +41,7 @@
     "variables": {
         "storageName": "[concat('function', uniqueString(parameters('siteName')))]",
         "contentShareName": "[toLower(parameters('siteName'))]",
-        "repoUrl": "https://github.com/erpellet/azure-functions-static-website",
+        "repoUrl": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/nestedtemplates/AzureAutomation.json', '&amp;githubaccesstoken=', parameters('_GitHubAccessToken'))]",
         "branch": "master"
     },
     "resources": [
